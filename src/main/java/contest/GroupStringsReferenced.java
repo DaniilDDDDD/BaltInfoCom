@@ -32,8 +32,8 @@ public class GroupStringsReferenced {
 
             BufferedWriter out = new BufferedWriter(new FileWriter(args[2]));
 
-            out.write("Group number: " + groups.size() + "\n");
-            out.write("\n");
+            out.write("Group number: " + groups.size() + "\n\n");
+            out.write("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond\n\n");
 
             for (int i = 0; i < groups.size(); i++) {
 
@@ -47,19 +47,18 @@ public class GroupStringsReferenced {
                                     return "\"\"";
                                 return "\"" + v + "\"";
                             })
-                            .collect(Collectors.joining(";")) + "\n");
-                    out.write("\n");
+                            .collect(Collectors.joining(";")) + "\n\n");
                 }
-                out.write("...\n");
-                out.write("\n");
+                out.write("...\n\n");
             }
-            out.write("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond");
 
             out.close();
 
         } else {
 
             System.out.println("Group number: " + groups.size() + "\n");
+
+            System.out.println("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond\n");
 
             for (int i = 0; i < groups.size(); i++) {
 
@@ -76,8 +75,6 @@ public class GroupStringsReferenced {
 
                 System.out.println("...\n");
             }
-
-            System.out.println("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond");
 
         }
 

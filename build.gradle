@@ -1,13 +1,5 @@
 apply plugin: 'java'
 
-//java {
-//    toolchain {
-//        languageVersion = JavaLanguageVersion.of(17)
-//    }
-//}
-
-//group 'org.contest'
-
 repositories {
     mavenCentral()
 }
@@ -23,7 +15,7 @@ jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     manifest {
-        attributes "Main-Class": "contest.GroupStrings"
+        attributes "Main-Class": "contest.GroupStringsReferenced"
     }
 
     from {

@@ -33,12 +33,14 @@ public class GroupStringsReferenced {
             BufferedWriter out = new BufferedWriter(new FileWriter(args[2]));
 
             out.write("Group number: " + groups.size() + "\n");
+            out.write("\n");
 
             for (int i = 0; i < groups.size(); i++) {
 
                 out.write("Group " + (i + 1) + "\n");
+                out.write("\n");
 
-                for (Integer row : groups.get(i))
+                for (Integer row : groups.get(i)) {
                     out.write(data.get(row)
                             .stream().map(v -> {
                                 if (Objects.equals(v, ""))
@@ -46,12 +48,14 @@ public class GroupStringsReferenced {
                                 return "\"" + v + "\"";
                             })
                             .collect(Collectors.joining(";")) + "\n");
-
+                    out.write("\n");
+                }
                 out.write("...\n");
+                out.write("\n");
             }
-            out.close();
+            out.write("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond");
 
-            System.out.println("Computation time: " + (System.currentTimeMillis() - timestamp) + " millisecond");
+            out.close();
 
         } else {
 
